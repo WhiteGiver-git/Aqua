@@ -119,38 +119,6 @@
             background: var(--primary-green);
         }
 
-        .search-bar {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            background: var(--bg-color);
-            width: 200px;
-            transition: width 0.3s ease;
-        }
-
-        .search-bar:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            width: 250px;
-        }
-
-        .search-button {
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px 10px;
-            color: #666;
-            transition: color 0.3s ease;
-        }
-
-        .search-button:hover {
-            color: var(--primary-green);
-        }
-
         /* Banner Section */
         .banner {
             height: 400px;
@@ -170,7 +138,11 @@
             text-align: center;
         }
         
-
+        .banner-content a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #f0f0f0;
+        }
         /* Main Content */
         main {
             flex: 1;
@@ -492,15 +464,6 @@
                     <li class="nav-tab"><a href="#products" onclick="showTab('products', this)">Products</a></li>
                     <li class="nav-tab"><a href="#about" onclick="showTab('about', this)">About</a></li>
                 </ul>
-                <div style="position: relative; display: inline-block;">
-                    <input type="search" class="search-bar" placeholder="Search..." style="padding-right: 40px;">
-                    <button class="search-button">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                </div>
             </div>
         </div>
     </nav>
@@ -508,17 +471,19 @@
     <!-- Home Tab -->
     <div id="home" class="tab-content active">
         <!-- Banner -->
-        <div class="banner">
-            <img src="images/logo_plant.jpg" alt="Banner" style="
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-          ">
-          </div>
+        <div class="banner" style="background-position: center center; background-image: url(images/About.jpg); background-size: cover;">
+            <div class="banner-content">
+                <h1>Michigan Aquaponics</h1>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="https://forms.gle/kWUXn7pTrKt5yuw18" 
+                       target="_blank" 
+                       class="interest-form-btn"
+                       style="display: inline-block; padding: 1rem 2.5rem; background: var(--white); color: var(--primary-green); text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        Interest Form
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <main>
             <!-- Who Are We Section -->
@@ -551,74 +516,161 @@
                         <div>
                             <h2 style="color: var(--primary-green); font-size: 2.8rem; margin-bottom: 1.5rem; font-weight: 700;">Who Are We?</h2>
                             <p style="font-size: 1.2rem; line-height: 1.8; color: #555;">
-                                We are an environmentally sustainable group, and are aiming to build a self sustaining system that incorparates both hydroponics and aquaculture! Currently, approximatley 70% of freshwater is used for agriculture, which is a huge portion of the nature resource availible to us. Implementing Aquaponic systems around the world would greatly reduce this percentage, as it is a closed system that cycles through the same water!
+                                We’re an interdisciplinary student team from the University of Michigan working to explore the future of sustainable food through aquaponics. Our members come from backgrounds like engineering, business, ecology, and computer science — and together, we’re building systems that combine plants, aquatic animals, and technology. One of our main focuses is developing smart, automated systems that make aquaponics easier to manage and more efficient. Whether it’s through hands-on experiments, sensor-based monitoring, or community outreach, we’re here to learn, build, and make an impact.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Featured Image Section -->
+            <!-- What is Aquaponics Section -->
             <div style="padding: 4rem 0; background: #f8f9fa;">
-                <div style="max-width: 1000px; margin: 0 auto; padding: 0 2rem;">
-                    <div style="background: #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; color: #999;">
-                        <img src="images/Poster.jpg" alt="Poster"/>                        
+                <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                        <!-- Text Content -->
+                        <div>
+                            <h2 style="color: var(--primary-green); font-size: 2.8rem; margin-bottom: 2rem; font-weight: 700;">
+                                What is Aquaponics?
+                            </h2>
+                            <p style="font-size: 1.2rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;">
+                                Aquaponics is a sustainable farming method that combines aquaculture (raising fish or shrimp) with hydroponics (growing plants without soil). In this closed-loop system, waste produced by the aquatic animals provides nutrients for the plants, and in turn, the plants help filter and clean the water, which is then recirculated back to the tank.
+                            </p>
+                            <p style="font-size: 1.2rem; line-height: 1.8; color: #555;">
+                                This natural cycle significantly reduces water usage compared to traditional farming, eliminates the need for chemical fertilizers, and allows for year-round food production in controlled environments. Aquaponics is used in urban farming, education, research, and even commercial food systems, offering an eco-friendly way to grow both protein and vegetables together.
+                            </p>
+                        </div>
+                        
+                        <!-- Image -->
+                        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
+                            <img 
+                                src="images/What is.webp" 
+                                alt="Aquaponics System Diagram" 
+                                style="width: 100%; height: auto; display: block;"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- Where Do We Work Section -->
             <div style="padding: 4rem 0;">
                 <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
                     <h2 style="color: var(--primary-green); font-size: 2.8rem; margin-bottom: 3rem; text-align: center; font-weight: 700;">Where Do We Work?</h2>
                     
-                    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: center;">
-                        <!-- Text Column -->
-                        <div>
-                            <p style="font-size: 1.2rem; line-height: 1.8; color: #555; margin-bottom: 2rem;">
-                                We will be engineering our system in the Green House at the <a href="https://www.robinhillsfarm.com/" target="_blank" style="color: var(--primary-green); text-decoration: underline;">Robin Hills Farm</a>! We aim to have a work day in the Green House atleast once a week, and we have bi-weekly mass meetings in DANA 1028. Feel free to join our discourd or mailing list to recieve notifications for mass meetings, we'd love to see you even if you haven't applied/been accepted yet!
-                            </p>
-                        </div>
-                        
-                        <!-- Image Column -->
-                        <div>
-                            <div style="
-                                width: 100%;
-                                height: 400px;
-                                border-radius: 12px;
-                                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                                overflow: hidden;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                background: #f0f0f0;
-                              ">
-                              <img
+                    <!-- Text Section -->
+                    <div style="margin-bottom: 3rem;">
+                        <p style="font-size: 1.2rem; line-height: 1.8; color: #555;">
+                            We’re proud to be working with <a href="https://www.robinhillsfarm.com/" target="_blank" style="color: var(--primary-green); text-decoration: underline;">Robin Hills Farm</a> in Chelsea, Michigan — a local hub for sustainability, education, and regenerative agriculture. Just about a 28-minute drive from Central Campus, the farm gives us a peaceful and practical space to build, test, and improve our aquaponics systems outside the classroom. Robin Hills previously operated its own aquaponics setup and, like us, believes in the power of closed-loop food production. Our missions are deeply aligned — combining environmental responsibility, community education, and innovation. We feel incredibly lucky to be collaborating with a team that shares our vision, and we’re excited to bring a new generation of smart, student-driven systems to life in partnership with them.
+                        </p>
+                    </div>
+                    
+                    <!-- Images Section -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                        <!-- Image 1 -->
+                        <div style="
+                            width: 100%;
+                            height: 300px;
+                            border-radius: 12px;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                            overflow: hidden;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: #f0f0f0;
+                        ">
+                            <img
                                 src="images/farm.jpg"
                                 alt="Robin Hills Farm Greenhouse"
                                 style="
-                                  width: 100%;
-                                  height: 100%;
-                                  object-fit: cover;
-                                  display: block;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    display: block;
                                 "
-                              />
-                            </div>
-                          </div>
+                            />
+                        </div>
+                        
+                        <!-- Image 2 -->
+                        <div style="
+                            width: 100%;
+                            height: 300px;
+                            border-radius: 12px;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                            overflow: hidden;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: #f0f0f0;
+                        ">
+                            <img
+                                src="images/Farm Map.png"
+                                alt="Farm Map"
+                                style="
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                    object-fit: contain;
+                                    display: block;
+                                "
+                            />
+                        </div>
+                        
+                        <!-- Image 3 -->
+                        <div style="
+                            width: 100%;
+                            height: 300px;
+                            border-radius: 12px;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                            overflow: hidden;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: #f0f0f0;
+                        ">
+                            <img
+                                src="images/Farm Views.jpg"
+                                alt="Farm Views"
+                                style="
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    display: block;
+                                "
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Transportation Benefits Section -->
-            <div style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-blue) 100%); padding: 3rem 0; margin-top: 2rem;">
-                <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; text-align: center; color: var(--white);">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
-                        <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px);">
-                            <h4 style="margin-bottom: 0.5rem;">Free Transportation</h4>
-                            <p>We organize rides for members without vehicles</p>
+            <!-- Sponsors Banner -->
+            <div style="background: linear-gradient(to right, #f8fafb 0%, #f0f4f7 100%); padding: 4rem 0; border-top: 1px solid #e0e5e8;">
+                <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+                    <h2 style="color: var(--primary-green); font-size: 2.8rem; margin-bottom: 3rem; text-align: center; font-weight: 700;">
+                        Proudly Sponsored By
+                    </h2>
+                    
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 5rem;">
+                        <!-- Sponsor 1 -->
+                        <div style="display: flex; align-items: center; gap: 1.5rem; padding: 0 3rem; border-left: 2px solid #ddd;">
+                            <img 
+                                src="images/LSA.png" 
+                                alt="University of Michigan College of LSA Logo"
+                                style="height: 70px; width: auto;"
+                            />
+                            <span style="color: #333; font-size: 1.5rem; font-weight: 600; line-height: 1.3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                                University of Michigan<br>College of LSA
+                            </span>
                         </div>
-                        <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px);">
-                            <h4 style="margin-bottom: 0.5rem;">Free Parking</h4>
-                            <p>All group members receive free parking on work days</p>
+                        
+                        <!-- Sponsor 2 -->
+                        <div style="display: flex; align-items: center; gap: 1.5rem; padding: 0 3rem; border-left: 2px solid #ddd;">
+                            <img 
+                                src="images/Engineering.png" 
+                                alt="University of Michigan College of Engineering Logo"
+                                style="height: 70px; width: auto;"
+                            />
+                            <span style="color: #333; font-size: 1.5rem; font-weight: 600; line-height: 1.3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                                University of Michigan<br>College of Engineering
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -664,23 +716,6 @@
                         <h3>Ebb Flow</h3>
                         <p>We decided to create a smaller system first,ebb-flow system, to ensure each member of the group had a clear understanding of the system. This system has the same exact concepts as the one we are working towards creating, just on a smaller scale.</p>
                         <a href="https://drive.google.com/file/d/1IQV96FtGRXZ_GmasErWDlw7INg4j9y8p/view?usp=sharing" target="_blank" class="product-link">View More</a>
-                        <!-- Replace # with actual Google Drive PDF link -->
-                    </div>
-                </div>
-
-                <!-- Sigma System -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <!-- Sigma system image placeholder -->
-                        <div style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;">
-                            <img src="images/Sigma.png" alt="Table Top"/>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Sigma</h3>
-                        <p>Our next mission is to create our full aquaponics system, which we will call Sigma System. The Sigma System will contain four plant beds, one settling tank(black rain barrell), one biofilter tank(blue barrell), and one prawn tank(IBC tote)</p>
-                        <a href="https://docs.google.com/presentation/d/1-aIsplBdZxyHirmg1Ow8c_SfwUqP8HNKKk_8kfOxWFk/present?slide=id.p" target="_blank" class="product-link">View More</a>
-                        <!-- Replace # with actual Google Drive PDF link -->
                     </div>
                 </div>
             </div>
@@ -691,16 +726,14 @@
                 <div class="whats-next-content">
                     <div style="flex: 1; min-width: 0;">
                         <div style="background: #f5f5f5; padding: 1rem; border-radius: 12px; width: 100%; height: auto; overflow: hidden;">
-                            <img src="images/W25 System.png" alt="W25 System Diagram" style="width: 100%; height: auto; display: block;">
+                            <img src="images/Sigma.jpg" alt="Sigma System Diagram" style="width: 100%; height: auto; display: block;">
                         </div>
                     </div>
                     <div class="whats-next-text">
                         <p>
-                            To the left is a diagram of the setup we are working to achieve. Many parts of the design have been purchased, and we are working on solidifying the specific dimensions of each part before we begin the building process.
+                            Our next mission is to create our full aquaponics system, which we will call Sigma System. The Sigma System will contain four plant beds, one settling tank(black rain barrell), one biofilter tank(blue barrell), and one prawn tank(IBC tote).
                         </p>
-                        <p>
-                            The systems we worked on last semester provided each member in the group with a deeper understanding of the principles of aquaponics. Each part from the first system will be integrated into the new system in some way, ensuring the optimal use of our funding.
-                        </p>
+                        <a href="https://docs.google.com/presentation/d/1-aIsplBdZxyHirmg1Ow8c_SfwUqP8HNKKk_8kfOxWFk/present?slide=id.p" target="_blank" class="product-link">View More</a>
                     </div>
                 </div>
             </div>
@@ -710,7 +743,7 @@
     <!-- About Tab -->
     <div id="about" class="tab-content">
         <!-- Banner -->
-        <div class="banner" style="background-position: center center; background-image: url(images/About.jpg); background-size: cover;">
+        <div class="banner" style="background-position: center center; background-image: url(images/3.jpg); background-size: cover;">
             <h1>About Us</h1>
         </div>
 
@@ -758,64 +791,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Current Progress Section -->
-                <div style="margin-bottom: 4rem;">
-                    <h2 style="text-align: center; color: var(--primary-green); font-size: 2.2rem; margin-bottom: 3rem;">Current Progress</h2>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                        <!-- Progress Item 1 -->
-                        <div style="background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
-                            <div style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;overflow: hidden;">
-                                <img src="images/Current Progress 1.jpg" alt="Our first prototype including a plant bed(tote) and a settling tank(blue barrell)."
-                                style="display: block; width: 100%; height: 100%; object-fit: cover;"/>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <p style="font-size: 0.95rem; line-height: 1.6;">
-                                    Our first prototype including a plant bed(tote) and a settling tank(blue barrel). In the barrel is a pump controlling the water level.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Progress Item 2 -->
-                        <div style="background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
-                            <div style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;overflow: hidden;">
-                                <img src="images/CP2.jpg" alt="Closer look at how the plants will be placed into the plant bed, using net cups."
-                                style="display: block; width: 100%; height: 100%; object-fit: cover;"/>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <p style="font-size: 0.95rem; line-height: 1.6;">
-                                    Closer look at how the plants will be placed into the plant bed, using net cups. We will be planting sweet basil, lettuce, and tomatoes!
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Progress Item 3 -->
-                        <div style="background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
-                            <div style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;overflow: hidden;">
-                                <img src="images/CP3.jpg" alt="Preparing the IBC tote to become the settling tank in Sigma."
-                                style="display: block; width: 100%; height: 100%; object-fit: cover;"/>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <p style="font-size: 0.95rem; line-height: 1.6;">
-                                    Preparing the IBC tote to become the settling tank in our new system, Sigma (learn more about that in the Products page!).
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Progress Item 4 -->
-                        <div style="background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
-                            <div style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;overflow: hidden;">
-                                <img src="images/CP4.jpg" alt="Drilling holes into the IBC tote to allow for pipes to be added and enclose the system."
-                                style="display: block; width: 100%; height: 100%; object-fit: cover;"/>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <p style="font-size: 0.95rem; line-height: 1.6;">
-                                    Drilling holes into the IBC tote to allow for pipes to be added and enclose the system.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Meet Our Team Section -->
                 <div style="margin-bottom: 4rem;">
@@ -835,7 +810,7 @@
                         <!-- Team Member 2 -->
                         <div style="text-align: center;">
                             <div style="width: 150px; height: 150px; border-radius: 50%; background: #f0f0f0; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
-                                <img src="images/Blank_Profile_Picture.webp" alt="Stella Gaydek"  class="member-photo"/>
+                                <img src="images/Stella.jpg" alt="Stella Gaydek"  class="member-photo"/>
                             </div>
                             <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Stella Gaydek</h4>
                             <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Vice-President</p>
@@ -882,16 +857,17 @@
                             <a href="https://www.linkedin.com/in/chentao-lai-alex/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-size: 0.85rem;">LinkedIn</a>
                         </div>
 
-                        <!-- Open Position 1 -->
+                        <!-- Team Member 7 -->
                         <div style="text-align: center;">
-                            <div style="width: 150px; height: 150px; border-radius: 50%; background: #e8f4f8; border: 2px dashed var(--light-green); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                <span style="color: var(--light-green); font-size: 3rem;">+</span>
+                            <div style="width: 150px; height: 150px; border-radius: 50%; background: #f0f0f0; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
+                                <img src="images/OP.jpeg" alt="Olivia Penrod"  class="member-photo"/>
                             </div>
-                            <h4 style="color: var(--light-green); margin-bottom: 0.5rem;">Currently Open</h4>
-                            <p style="font-size: 0.9rem; color: #666;">VP-Ecology (Agriculture)</p>
+                            <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Olivia Penrod</h4>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">VP-Ecology</p>
+                            <a href="https://www.linkedin.com/in/olivia-penrod-96159a356/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-size: 0.85rem;">LinkedIn</a>
                         </div>
 
-                        <!-- Open Position 2 -->
+                        <!-- Open Position 1 -->
                         <div style="text-align: center;">
                             <div style="width: 150px; height: 150px; border-radius: 50%; background: #e8f4f8; border: 2px dashed var(--light-green); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
                                 <span style="color: var(--light-green); font-size: 3rem;">+</span>
@@ -900,7 +876,7 @@
                             <p style="font-size: 0.9rem; color: #666;">VP-Tech (Hardware)</p>
                         </div>
 
-                        <!-- Open Position 3 -->
+                        <!-- Open Position 2 -->
                         <div style="text-align: center;">
                             <div style="width: 150px; height: 150px; border-radius: 50%; background: #e8f4f8; border: 2px dashed var(--light-green); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
                                 <span style="color: var(--light-green); font-size: 3rem;">+</span>
@@ -918,8 +894,8 @@
                         No experience required to join, and we accept all majors! If you want to be involved, we'd love to have you! 
                     </p>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://www.linkedin.com/company/aquaponics-team-at-the-univerity-of-michigan/?viewAsMember=true" target="_blank" style="display: inline-block; padding: 1rem 2.5rem; background: transparent; color: var(--white); text-decoration: none; border-radius: 50px; font-weight: 600; border: 2px solid var(--white); transition: all 0.3s ease;">
-                            Connect With Us
+                        <a href="https://forms.gle/kWUXn7pTrKt5yuw18" target="_blank" style="display: inline-block; padding: 1rem 2.5rem; background: transparent; color: var(--white); text-decoration: none; border-radius: 50px; font-weight: 600; border: 2px solid var(--white); transition: all 0.3s ease;">
+                            Interest Form
                         </a>
                     </div>
                 </div>
@@ -935,8 +911,7 @@
                 <h3>Contact Us</h3>
                 <p><a href="https://linktr.ee/UMAQUA" target="_blank">Link Tree</a></p>
                 <p><a href="https://www.instagram.com/aquaponicsmichigan/" target="_blank">Instagram</a></p>
-                <p>Genral Group: <a href="mailto:umaquaponics@umich.edu" style="text-decoration: underline;">umaquaponics@umich.edu</a></p>
-                <p>Eboard Only: <a href="mailto:umaquaponics-eboard@umich.edu" style="text-decoration: underline;">umaquaponics-eboard@umich.edu</a></p>
+                <p><a href="mailto:umaquaponics-eboard@umich.edu" style="text-decoration: underline;">umaquaponics-eboard@umich.edu</a></p>
             </div>
         </div>
         
