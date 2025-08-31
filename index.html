@@ -246,18 +246,26 @@
 
         .product-image {
             width: 100%;
-            height: 250px;
-            overflow: hidden;
-            background: #f5f5f5;
+            height: 350px; /* 改为auto，让高度自适应图片比例 */
+            min-height: 200px; /* 设置最小高度保持卡片美观 */
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #f8f9fa; /* 添加背景色以防图片无法加载 */
+            overflow: hidden;
         }
 
         .product-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* 高度自适应，保持图片原始比例 */
+            max-width: 100%;
+            object-fit: contain; /* 改为contain，完整显示图片内容 */
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product-image img:hover {
+            transform: scale(1.02); /* 减小放大倍数，避免超出容器 */
         }
 
         .product-info {
@@ -372,28 +380,56 @@
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
         }
-
+        
+        .footer-section {
+            text-align: center;
+        }
+        
         .footer-section h3 {
-            color: var(--light-green);
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ecf0f1;
         }
-
-        .footer-section p,
-        .footer-section a {
-            color: #cccccc;
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #34495e;
+            border-radius: 50%;
+            color: white;
             text-decoration: none;
-            line-height: 1.8;
+            transition: all 0.3s ease;
+            font-size: 20px;
         }
-
-        .footer-section a:hover {
-            color: var(--light-green);
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .social-icon.linkedin:hover {
+            background: #0077b5;
+        }
+        
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        }
+        
+        .social-icon.email:hover {
+            background: #d44638;
         }
 
         .footer-bottom {
@@ -444,6 +480,16 @@
 
             .whats-next-content {
                 grid-template-columns: 1fr;
+            }
+
+            .social-icons {
+                gap: 20px;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
             }
         }
     </style>
@@ -814,7 +860,7 @@
                             </div>
                             <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Stella Gaydek</h4>
                             <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Vice-President</p>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Authorized Signer</p>
+                            <a href="https://www.linkedin.com/in/stella-gaydek-713232374/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-size: 0.85rem;">LinkedIn</a>
                         </div>
 
                         <!-- Team Member 3 -->
@@ -907,11 +953,27 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section" style="text-align: center;">
+            <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p><a href="https://linktr.ee/UMAQUA" target="_blank">Link Tree</a></p>
-                <p><a href="https://www.instagram.com/aquaponicsmichigan/" target="_blank">Instagram</a></p>
-                <p><a href="mailto:umaquaponics-eboard@umich.edu" style="text-decoration: underline;">umaquaponics-eboard@umich.edu</a></p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/aquaponics-team-at-the-univerity-of-michigan/posts/?feedView=all&viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-icon linkedin" title="Link Tree">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/aquaponicsmichigan/" target="_blank" rel="noopener noreferrer" class="social-icon instagram" title="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="mailto:umaquaponics-eboard@umich.edu" class="social-icon email" title="Email Us">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636C.732 21.002 0 20.27 0 19.366V5.457c0-.887.713-1.613 1.598-1.613.425 0 .837.164 1.147.468L12 13.384l9.255-9.072c.31-.304.722-.468 1.147-.468.885 0 1.598.726 1.598 1.613z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
         
